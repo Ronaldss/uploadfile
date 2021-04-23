@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/index.css" >
+ 
+  <!-- Add Storage -->
+  <!--
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+  -->
+
+  <title>Uploadfile</title>
+</head>
+<body>
+
+  <input type="file" id="file" onchange="__func(this)">
+
+<!-- Firebase SDK Snippet -->	
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDf6Upy1PKhszOdlals_HTR3aeSuMKW-Xo",
+    authDomain: "tarefas-ff8b6.firebaseapp.com",
+    projectId: "tarefas-ff8b6",
+    storageBucket: "tarefas-ff8b6.appspot.com",
+    messagingSenderId: "363449766280",
+    appId: "1:363449766280:web:02f0283ef9f5f3eda4aa3d",
+    measurementId: "G-NK5C6XF1LW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  
+
+
+</script>
+
+
+
+
+<!--Referenciado nome das imagens-->
+<script>
+// Create a root reference
+var storageRef = firebase.storage().ref();
+var texto = storageRef.child('arquivo.txt');
+var imagemRef = storageRef.child('imagem1000.jpg');
+
+// Create a reference to 'teste-2.jpg'
+//var testsRef = storageRef.child('test-2.jpg');
+
+
+
+// Fazer upload dos arquivos via PUT()
+//var file = new Blob('test-2.jpg', {type:'image/jpeg'} )
+//imagemRef.put(file).then(function(snapshot) {
+//  console.log('Funfou!');
+//});
+
+
+
+// Se não colocar nenhuma string, vai a bruta mesmo.
+var message = 'Ronald ok';
+console.log("Iniciando...")
+texto.putString(message).then(function(snapshot) {
+  console.log('Carregou uma string bruta!'); 
+});
+
+
+
+
+function __func(target)
+    {
+        let file = target.files[0];
+      file = new File([file], 'imagem1000.jpg',{type:file.type});
+        
+      imagemRef.put(file).then(function(snapshot) {
+      console.log('Funfou!');
+});
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>
