@@ -9,6 +9,7 @@
 <body>
 
   <!--<form id="formulario" name=""  method='' action="">-->
+    Nome do aluno: <input type="text" name="nomeAluno" id="nomeAluno"><hr>
     <p>Qual sua série:</p>
    
     <input type="radio" name="serie" id="6" value="6">
@@ -103,6 +104,8 @@
     function vai(){
       let serie = document.querySelector('input[name="serie"]:checked').value;
       let turma = document.querySelector('input[name="turma"]:checked').value;
+      let nomeAluno = document.getElementById('nomeAluno').value;
+      console.log(`Nome do aluno(a): ${nomeAluno}`);
       console.log(`Serie: ${serie} Turma: ${turma}`);
 
       //<!--Referenciado nome das imagens-->
@@ -113,7 +116,7 @@
       // Criando os filhos
       let texto = storageRef.child('Arquivo.txt');
       let imagemRef = storageRef.child('imagem-raiz.jpg');
-      let tarefaRef = storageRef.child(`${serie}/${serie}-${turma}/tarefa.jpg`);
+      let tarefaRef = storageRef.child(`${serie}/${serie}-${turma}/${nomeAluno}`);
       console.log(`Filho tarefa: ${tarefaRef}`);
 
       console.log(targetGlobal);
