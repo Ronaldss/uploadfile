@@ -7,8 +7,8 @@
   <title>Uploadfile</title>
 </head>
 <body>
-  <h1>Materia de ARTES</h1>
-  Nome completo: <input type="text" name="nomeAluno" id="nomeAluno"><hr>
+  <h1>Materia de ARTE</h1>
+  Nome completo: <input type="text" name="nomeAluno" id="nomeAluno">
   
   <p>Qual sua série:</p>
   
@@ -23,7 +23,14 @@
   
   <input type="radio" name="serie" id="9" value="9">
   <label for="">9</label><br><br>
-  <hr>
+
+  <label for="tarefa"> Escolha o título da tarefa</label>
+	<select name="tarefa" id="tarefa">
+    <option value="06.04.2021">Atividade página 21</option>
+    <option value="13.04.2021">Resumo páginas 23-26</option>
+    <option value="24.04.2021">Jogo Labirinto</option>
+    <option value="28.04.2021">Atividade página 29</option>
+	</select><br><br><br>
 
   <p>Salvar tarefa aqui:</p>
   <input type="file" id="file" onchange="__funcPasta(this)"><br><br><hr>
@@ -105,10 +112,16 @@
       let storage = firebase.storage();
       let storageRef = storage.ref();
 
+      // Valor do option
+      var select = document.getElementById('tarefa');
+	    var value = select.options[select.selectedIndex].value;
+	    console.log(`Valor do option: ${value}`);
+
+
       // Criando os filhos
       let texto = storageRef.child('Arquivo.txt');
       let imagemRef = storageRef.child('imagem-raiz.jpg');
-      let tarefaRef = storageRef.child(`Arte/${serie}/${nomeAluno}`);
+      let tarefaRef = storageRef.child(`Arte/${serie}/${value}/${nomeAluno}`);
       console.log(`Filho tarefa: ${tarefaRef}`);
 
       let campoNome = document.getElementById('nomeAluno').value;
