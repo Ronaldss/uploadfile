@@ -1,159 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/index.css" >
-  <title>Uploadfile</title>
+  <title>Materia</title>
 </head>
 <body>
-
-  <!--<form id="formulario" name=""  method='' action="">-->
-    Nome do aluno: <input type="text" name="nomeAluno" id="nomeAluno"><hr>
-    <p>Qual sua série:</p>
-   
-    <input type="radio" name="serie" id="6" value="6">
-    <label for="">6</label><br>
-  
-    <input type="radio" name="serie" id="7" value="7">
-    <label for="">7</label><br>
-  
-    <input type="radio" name="serie" id="8" value="8">
-    <label for="">8</label><br>
-    
-    <input type="radio" name="serie" id="9" value="9">
-    <label for="">9</label><br>
-<hr>
-    <p>Qual sua turma:</p>
-    
-    <input type="radio" name="turma" id="A" value="A">
-    <label for="">A</label><br>
-  
-    <input type="radio" name="turma" id="B" value="B">
-    <label for="">B</label><br>
- 
-    <input type="radio" name="turma" id="C" value="C">
-    <label for="">C</label><br>
-  <!--
-    <input type="radio" name="turma" id="D" value="D">
-    <label for="">D</label><br>
-    
-    <input type="radio" name="turma" id="E" value="E">
-    <label for="">E</label><br>
-
-    <input type="radio" name="turma" id="F" value="F">
-    <label for="">F</label>
-  -->
-    <br><br><hr>
-
-    <p>Salvar tarefa aqui:</p>
-    <input type="file" id="file" onchange="__funcPasta(this)"><br><br><hr>
-
-    <input onclick="vai()" type="submit" value="Enviar">
-  <!--</form>-->
-
-<br><br>
-
-
-<!-- 
-  Firebase SDK Snippet	
-  O SDK JS do Firebase principal é sempre necessário e deve ser listado primeiro 
--->
-<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
-
-<!-- TODO: Adicionar SDKs para produtos Firebase que você deseja usar -->
-<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
-
-<script>
-  // Configuração do seu applicativo da web
-  // Para Firebase JS SDK v7.20.0 e posterior, measurementId é opcional
-  var firebaseConfig = {
-    apiKey: "AIzaSyDf6Upy1PKhszOdlals_HTR3aeSuMKW-Xo",
-    authDomain: "tarefas-ff8b6.firebaseapp.com",
-    projectId: "tarefas-ff8b6",
-    storageBucket: "tarefas-ff8b6.appspot.com",
-    messagingSenderId: "363449766280",
-    appId: "1:363449766280:web:02f0283ef9f5f3eda4aa3d",
-    measurementId: "G-NK5C6XF1LW"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
-
-<script>
-  // Capturando valeu do input radios
-    var serie = "serie";
-    var turma = "turma";
-    let targetGlobal; 
-
-    // Upload de imagens p/ PASTA específica
-    function __funcPasta(target)
-    {
-      let file = target.files[0];
-      file = new File([file], 'tarefa.jpg',{type:file.type});
-      targetGlobal = file; 
-      
-      //tarefaRef.put(file).then(function(snapshot) {
-      //  console.log('Upload de imagemPASTA concluido!!');
-      //});
+  <h1>Minhas Tarefa</h1>
+  <p>Escolha a materia</p>
+  <input type="radio" name="materia" id="artes" value="artes">
+  <label for="">Artes</label><br>
+  <input type="radio" name="materia" id="hAlagoas" value="hAlagoas">
+  <label for="">História de Alagoas</label><br>
+  <input type="radio" name="materia" id="hGeral" value="hGeral">
+  <label for="">História Geral</label><br>
+  <br>
+  <button onclick="redirecionar()">Confirmar</button>
+  <script>
+    function redirecionar() {
+      if (document.querySelector('input[value="artes"]:checked')) {
+        console.log("Artes foi marcado!")
+        window.location.href = "./index-artes.html"
+      }
+      if (document.querySelector('input[value="hAlagoas"]:checked')) {
+        console.log("hAlagoas foi marcado!")
+        window.location.href = "./index-hAlagoas.html"
+      }
+      if (document.querySelector('input[value="hGeral"]:checked')) {
+        console.log("hGeral foi marcado!")
+        window.location.href = "./index-hGeral.html"
+      }
     }
-
-    function vai(){
-      let serie = document.querySelector('input[name="serie"]:checked').value;
-      let turma = document.querySelector('input[name="turma"]:checked').value;
-      let nomeAluno = document.getElementById('nomeAluno').value;
-      console.log(`Nome do aluno(a): ${nomeAluno}`);
-      console.log(`Serie: ${serie} Turma: ${turma}`);
-
-      //<!--Referenciado nome das imagens-->
-      // Criando referencia raiz
-      let storage = firebase.storage();
-      let storageRef = storage.ref();
-
-      // Criando os filhos
-      let texto = storageRef.child('Arquivo.txt');
-      let imagemRef = storageRef.child('imagem-raiz.jpg');
-      let tarefaRef = storageRef.child(`${serie}/${serie}-${turma}/${nomeAluno}`);
-      console.log(`Filho tarefa: ${tarefaRef}`);
-
-      console.log(targetGlobal);
-      tarefaRef.put(targetGlobal).then(function(snapshot){
-        console.log('ok!');
-      })
-    
-    }
-
-// Criando os filhos
-//var texto = storageRef.child('Arquivo.txt');
-//var imagemRef = storageRef.child('imagem-raiz.jpg');
-//let tarefaRef = storageRef.child(`${serie}/${serie}-${turma}/tarefa.jpg`);
-//console.log(`Filho tarefa: ${tarefaRef}`);
-
-
-// Upload de textos.
-function uploadTxt(){
-  var message = 'Esta é a mensagem!';
-  texto.putString(message).then(function(snapshot) {
-    console.log('Upload .txt concluido!'); 
-  });
-}
-
-// Upload de imagens na raiz
-function __func(target)
-{
-  let file = target.files[0];
-  file = new File([file], 'imagem3000.jpg',{type:file.type});
-    
-  imagemRef.put(file).then(function(snapshot) {
-    console.log('Upload de imagem concluido!!');
-  });
-}
-
-
-
-</script>
+  </script>
 </body>
 </html>

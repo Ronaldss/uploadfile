@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/index.css" >
+  <title>Uploadfile</title>
+</head>
+<body>
+  <h1>História Geral</h1>
+  Nome completo: <input type="text" required="" name="nomeAluno" id="nomeAluno"><br><hr>
+  
+  <p>Qual sua série:</p>
+  
+  <input type="radio" name="serie" id="6" value="6">
+  <label for="">6</label><br>
+
+  <input type="radio" name="serie" id="7" value="7">
+  <label for="">7</label><br>
+
+  <input type="radio" name="serie" id="8" value="8">
+  <label for="">8</label><br><br>
+ 
+  <hr>
+
+  <p>Qual sua turma:</p>
+  <input type="radio" name="turma" id="A" value="A">
+  <label for="">A</label><br>
+
+  <input type="radio" name="turma" id="B" value="B">
+  <label for="">B</label><br>
+
+  <input type="radio" name="turma" id="C" value="C">
+  <label for="">C</label><br>
+
+  <input type="radio" name="turma" id="D" value="D">
+  <label for="">D</label><br>
+
+  <input type="radio" name="turma" id="E" value="E">
+  <label for="">E</label><br>
+
+  <input type="radio" name="turma" id="F" value="F">
+  <label for="">F</label><br>
+
+  <br><br><hr>
+
+  <p>Salvar tarefa aqui:</p>
+  <input type="file" id="file" onchange="__funcPasta(this)"><br><br><hr>
+
+  <input onclick="vai()" type="submit" value="Enviar">
+
+
+<br><br>
+
+<!-- Esconter turma -->
+<script>
+  function clickArte(){
+    console.log("click arte!!!");
+    let container = document.querySelector('.container');
+    if(container.style.display === 'block') {
+      container.style.display = 'none';
+    } else {
+      container.style.display = 'block';
+    } 
+    window.location.reload()
+  }
+</script>
+
+<!-- 
+  Firebase SDK Snippet	
+  O SDK JS do Firebase principal é sempre necessário e deve ser listado primeiro 
+-->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+<!-- TODO: Adicionar SDKs para produtos Firebase que você deseja usar -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+
+<script>
+  // Configuração do seu applicativo da web
+  // Para Firebase JS SDK v7.20.0 e posterior, measurementId é opcional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDf6Upy1PKhszOdlals_HTR3aeSuMKW-Xo",
+    authDomain: "tarefas-ff8b6.firebaseapp.com",
+    projectId: "tarefas-ff8b6",
+    storageBucket: "tarefas-ff8b6.appspot.com",
+    messagingSenderId: "363449766280",
+    appId: "1:363449766280:web:02f0283ef9f5f3eda4aa3d",
+    measurementId: "G-NK5C6XF1LW"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script>
+  // Capturando valeu do input radios
+    var serie = "serie";
+    var turma = "turma";
+    let targetGlobal; 
+
+    // Upload de imagens p/ PASTA específica
+    function __funcPasta(target)
+    {
+      let file = target.files[0];
+      file = new File([file], 'tarefa.jpg',{type:file.type});
+      targetGlobal = file; 
+      
+      //tarefaRef.put(file).then(function(snapshot) {
+      //  console.log('Upload de imagemPASTA concluido!!');
+      //});
+    }
+
+    function vai(){
+      let serie = document.querySelector('input[name="serie"]:checked').value;
+      let turma = document.querySelector('input[name="turma"]:checked').value;
+      let nomeAluno = document.getElementById('nomeAluno').value;
+      console.log(`Nome do aluno(a): ${nomeAluno}`);
+      console.log(`Serie: ${serie} Turma: ${turma}`);
+
+      //<!--Referenciado nome das imagens-->
+      // Criando referencia raiz
+      let storage = firebase.storage();
+      let storageRef = storage.ref();
+
+      // Criando os filhos
+      let texto = storageRef.child('Arquivo.txt');
+      let imagemRef = storageRef.child('imagem-raiz.jpg');
+      let tarefaRef = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${nomeAluno}`);
+      let tarefaRef_7 = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${nomeAluno}`);
+      let tarefaRef_8 = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${nomeAluno}`);
+      console.log(`Filho tarefa: ${tarefaRef}`);
+
+      let campoNome = document.getElementById('nomeAluno').value;
+      console.log(`Valor do campo nome do Aluno: ${campoNome}`);
+      if (campoNome == "") {
+	console.log('Campo nome não preenchido!_');
+	alert('Digite seu nome!');
+        window.location.hef = "./index.hGeral.html"
+      }else{
+     	 console.log(targetGlobal);
+      	 tarefaRef.put(targetGlobal).then(function(snapshot){
+        	console.log('Tarefa de História Geral Enviada!');
+		alert('Obrigada querido aluno(a)! \n Breve irei corrigir.');
+         })
+      }
+    
+    }
+
+// Criando os filhos
+//var texto = storageRef.child('Arquivo.txt');
+//var imagemRef = storageRef.child('imagem-raiz.jpg');
+//let tarefaRef = storageRef.child(`${serie}/${serie}-${turma}/tarefa.jpg`);
+//console.log(`Filho tarefa: ${tarefaRef}`);
+
+
+// Upload de textos.
+function uploadTxt(){
+  var message = 'Esta é a mensagem!';
+  texto.putString(message).then(function(snapshot) {
+    console.log('Upload .txt concluido!'); 
+  });
+}
+
+// Upload de imagens na raiz
+function __func(target)
+{
+  let file = target.files[0];
+  file = new File([file], 'imagem3000.jpg',{type:file.type});
+    
+  imagemRef.put(file).then(function(snapshot) {
+    console.log('Upload de imagem concluido!!');
+  });
+}
+
+
+
+</script>
+</body>
+</html>
