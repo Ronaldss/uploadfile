@@ -134,18 +134,27 @@
 
       let campoNome = document.getElementById('nomeAluno').value;
       console.log(`Valor do campo nome do Aluno: ${campoNome}`);
+
+      // Verificar se campo Nome foi preenchido
       if (campoNome == "") {
-	console.log('Campo nome não preenchido!_');
-	alert('Digite seu nome!');
+	      console.log('Campo nome não preenchido!');
+	      alert('Digite seu nome!');
         window.location.hef = "./index.hGeral.html"
-      }else{
-     	 console.log(targetGlobal);
-      	 tarefaRef.put(targetGlobal).then(function(snapshot){
-        	console.log('Tarefa de História Geral Enviada!');
-		alert('Obrigada querido aluno(a)! \n Breve irei corrigir.');
-         })
       }
-    
+      // Verifique se existe um arquivo
+      if (!targetGlobal) {
+        console.log('Arquivo não anexado!')
+        alert('Você esqueceu de anexar a tarefa!')
+        window.location.hef = "./index-artes.html"
+      }
+      // Enviar formulario
+      if (campoNome != "" && (!targetGlobal === false)) {
+     	  console.log(targetGlobal);
+      	tarefaRef.put(targetGlobal).then(function(snapshot){
+        console.log('Tarefa de História Geral Enviada!');
+		    alert('Obrigada querido aluno(a)! \nBreve irei corrigir.');
+        })
+      }
     }
 
 // Criando os filhos
