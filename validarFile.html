@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>File Size</title>
+        <!-- Bootstrap core CSS -->
+        <link href="http://leandrolisura.com.br/wp-content/uploads/2017/11/bootstrap.min_.css" rel="stylesheet">
+        <style type="text/css">
+            body { padding-top: 50px; }
+            .starter-template { padding: 40px 15px;text-align: center; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Leandro Lisura</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">File Size JS</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="container">
+            <div class="starter-template">
+                <h1>File input</h1>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-2">
+                        <form>
+                            <div class="form-group">
+                                <label for="file_sample"></label>
+                                <input type="file" id="file_input">
+                            </div>
+                            <p>Max size: 500kb</p>
+                            <button type="submit" id="submit_button" class="btn btn-default">Submit to file data</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-group" style="text-align: left;">
+                            <li class="list-group-item"><strong>Name:</strong> <span id="list_group_span_name"></span></li>
+                            <li class="list-group-item"><strong>Size:</strong> <span id="list_group_span_size"></span></li>
+                            <li class="list-group-item"><strong>Type:</strong> <span id="list_group_span_type"></span></li>
+                            <li class="list-group-item"><strong>Extension</strong> <span id="list_group_span_ext"></span></li>
+                            <li class="list-group-item"><strong>Last Modified Date:</strong> <span id="list_group_span_modified"></span></li>
+                        </ul>
+                        <div id="div_row_error" class="alert alert-danger" role="alert"><strong>Oh snap!</strong> <span id="div_alert_span_error"></span></div>
+                        <div id="div_row_success" class="alert alert-success" role="alert"><strong>Well done!</strong> <span id="div_alert_span_success"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+        <!-- Bootstrap core JavaScript -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://leandrolisura.com.br/wp-content/uploads/2017/11/jquery.min_.js"></script>
+        <script src="http://leandrolisura.com.br/wp-content/uploads/2017/11/bootstrap.min_.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#div_row_success').hide();
+                $('#div_row_error').hide();
+                max_size_file = 500000; // => MAX File size
+                // => Every time you change file on form
+                $("input:file").change(function () {
+                    var fileInput = $(this); // => Gets the file data
+                    if (fileInput.get(0).files.length) { // => Check if there is a file
+                        var fileSize = fileInput.get(0).files[0].size; // => Value in bytes
+                        if (fileSize > max_size_file) { // => Check if the file size is bigger tham MAX
+                            alertErrorShow('Your file size is bigger then ' + max_size_file + ' KB');
+                            return false; // => Ends action
+                        } else {
+                            alertSuccessShow('Great Job');
+                            return false; // => Ends action
+                        }
+                    } else {
+                        alertErrorShow('You have to choose one file');
+                        return false; // => Ends action
+                    }
+                });
+ 
+                // => Execute on click submit buttom
+                $("#submit_button").click(function () {
+                    var fileInput = $('#file_input'); // => Gets the file data
+                    if (fileInput.get(0).files.length) { // => Check if there is a file
+                        var filename = fileInput.get(0).files[0].name; // => Gets the file name
+                        $("#list_group_span_name").html(filename);
+                        $("#list_group_span_size").html(fileInput.get(0).files[0].size + ' bytes');
+                        $("#list_group_span_type").html(fileInput.get(0).files[0].type);
+                        $("#list_group_span_ext").html(filename.split('.').pop());
+                        $("#list_group_span_modified").html(fileInput.get(0).files[0].lastModifiedDate);
+                        return false; // => This "return false" is just becase i dont want to send de request
+                    } else {
+                        alertErrorShow('You have to choose one file');
+                        return false; // => Ends action
+                    }
+                });
+            });
+ 
+            // => Just show alerts
+            function alertErrorShow(message) {
+                $('#div_row_success').hide();
+                $('#div_alert_span_error').html(message);
+                $('#div_row_error').show();
+            }
+ 
+            // => Just show alerts
+            function alertSuccessShow(message) {
+                $('#div_row_error').hide();
+                $('#div_alert_span_success').html(message);
+                $('#div_row_success').show();
+            }
+        </script>
+    </body>
+</html>

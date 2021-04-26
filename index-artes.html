@@ -24,6 +24,7 @@
   <input type="radio" name="serie" id="9" value="9">
   <label for="">9</label><br><br>
 
+  <!-- Título das tarefas -->
   <label for="tarefa"> Escolha o título da tarefa</label>
 	<select name="tarefa" id="tarefa">
     <option value="06.04.2021">Atividade página 21</option>
@@ -33,7 +34,7 @@
 	</select><br><br><br>
 
   <p>Salvar tarefa aqui:</p>
-  <input type="file" id="file" onchange="__funcPasta(this)"><br><br><hr>
+  <input type="file" id="arquivoUP" onchange="__funcPasta(this)"><br><br><hr>
 
   <input onclick="vai()" type="submit" value="Enviar">
 
@@ -127,15 +128,23 @@
       let campoNome = document.getElementById('nomeAluno').value;
       console.log(`Valor do campo Nome do Aluno: ${nomeAluno}`);
 
+      
+      // Verificar se campo Nome foi preenchido
       if (campoNome == "") {
-	console.log('Campo Nome não preenchido');
-	alert('Digite seu nome!');
-	window.location.hef = "./index-artes.html"
-      }else{
+	      console.log('Campo Nome não preenchido');
+	      alert('Digite seu nome!');
+	      window.location.hef = "./index-artes.html"
+      }// Verifique se existe um arquivo
+      if (!targetGlobal) {
+        console.log('Arquivo não anexado!')
+        alert('Você esqueceu de anexar a tarefa!')
+        window.location.hef = "./index-artes.html"
+      }
+      if (campoNome != "" && (!targetGlobal === false)) {
       	console.log(targetGlobal);
       	tarefaRef.put(targetGlobal).then(function(snapshot){
-           console.log('Tarefa de Artes enviada!');
-	   alert('Obrigado querido aluno(a)! \n Breve irei corrigir!');
+        console.log('Tarefa de Artes enviada!');
+	      alert('Obrigado querido aluno(a)! \nBreve irei corrigir!');
       })
       }
     }
