@@ -106,6 +106,12 @@
     let node9 = document.getElementById("render9");
 
 
+    if (node6 == null) {
+      console.log('Filho não existe, então dar restart');
+      document.location.reload(true);
+    }
+
+
     if (e.value === '6') {
       //document.getElementById('render7').style.display = 'none';
       //document.getElementById('render8').style.display = 'none';
