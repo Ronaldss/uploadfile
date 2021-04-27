@@ -10,6 +10,8 @@
   <h1>Materia de ARTE</h1>
   Nome completo: <input type="text" name="nomeAluno" id="nomeAluno">
   
+
+<form name="form">
   <p>Qual sua série:</p>
   
   <input type="radio" name="serie" id="6" value="6">
@@ -23,16 +25,162 @@
   
   <input type="radio" name="serie" id="9" value="9">
   <label for="">9</label><br><br>
+</form>
 
+<!-- TAREFAS MÊS DE ABRIL -->
+<div id="render6">
   <!-- Título das tarefas  6 ANO-->
-  <label for="tarefa"> Escolha o título da tarefa</label>
-	<select name="tarefa" id="tarefa">
+  <label for="tarefa"> Escolha o título da tarefa 6 ANO</label>
+  <select name="tarefa" id="tarefa">
     <option value="06.04.2021">Atividade página 21</option>
     <option value="13.04.2021">Resumo páginas 23-26</option>
     <option value="21.04.2021">Resumo página 29</option>
     <option value="24.04.2021">Jogo Labirinto</option>
     <option value="28.04.2021">Atividade página 30 e resumo da 31</option>
-	</select><br><br><br>
+  </select><br><br><br>
+</div>
+
+
+   <!-- Título das tarefas 7 ANO-->
+   <div id="render7">
+   <label for="tarefa"> Escolha o título da tarefa 7 ANO</label>
+   <select name="tarefa" id="tarefa">
+     <option value="06.04.2021">Atividade páginas 21</option>
+     <option value="13.04.2021">Atividade página 22</option>
+     <option value="21.04.2021">Resumo página 23-26</option>
+     <option value="24.04.2021">Jogo Labirinto</option>
+     <option value="28.04.2021">Atividade página 29</option>
+   </select><br><br><br>
+  </div>
+   
+
+  <!-- Título das tarefas  8 ANO-->
+  <div id="render8">
+  <label for="tarefa"> Escolha o título da tarefa 8 ANO</label>
+  <select name="tarefa" id="tarefa">
+    <option value="06.04.2021">Atividade página 21-22</option>
+    <option value="13.04.2021">Resumo páginas 23-25</option>
+    <option value="21.04.2021">Resumo página 29</option>
+    <option value="24.04.2021">Jogo Labirinto</option>
+    <option value="28.04.2021">Atividade página 30 e resumo da 31</option>
+  </select><br><br><br>
+</div>
+  
+
+  <!-- Título das tarefas  9 ANO-->
+  <div id="render9">
+  <label for="tarefa"> Escolha o título da tarefa 9 ANO</label>
+  <select name="tarefa" id="tarefa">
+    <option value="06.04.2021">Atividade página 21-22</option>
+    <option value="13.04.2021">Resumo páginas 23-26</option>
+    <option value="21.04.2021">Atividade página 30</option>
+    <option value="24.04.2021">Jogo Labirinto</option>
+    <option value="28.04.2021">Atividade página 31 e resumo da 32-33</option>
+  </select><br><br><br>
+</div>
+
+
+<script>
+  // Alterando titulos de tarefas de acordo com turma de aluno ao clickar no input:radio
+
+  document.getElementById('render6').style.display = 'none';
+  document.getElementById('render7').style.display = 'none';
+  document.getElementById('render8').style.display = 'none';
+  document.getElementById('render9').style.display = 'none';
+
+  var rad = document.form.serie;
+  var prev = null;
+  for (var i = 0; i < rad.length; i++) {
+  rad[i].onclick = function() {
+    qualquerFuncao(this);
+  }
+  };
+
+  function qualquerFuncao(e) {
+    console.log(e.value);
+    //container.style.display = 'block';
+
+    let node6 = document.getElementById("render6");
+    let node7 = document.getElementById("render7");
+    let node8 = document.getElementById("render8");
+    let node9 = document.getElementById("render9");
+
+
+    if (e.value === '6') {
+      //document.getElementById('render7').style.display = 'none';
+      //document.getElementById('render8').style.display = 'none';
+      //document.getElementById('render9').style.display = 'none';
+      //document.getElementById('render6').style.display = 'block';
+
+      document.getElementById('render6').style.display = 'block';
+      
+      if (node7.parentNode) {
+        node7.parentNode.removeChild(node7);
+      }
+      if (node8.parentNode) {
+        node8.parentNode.removeChild(node8);
+      }
+      if (node9.parentNode) {
+        node9.parentNode.removeChild(node9);
+      }
+
+    }
+
+
+
+    if (e.value === '7') {
+      
+      document.getElementById('render7').style.display = 'block';
+      
+      if (node6.parentNode) {
+        node6.parentNode.removeChild(node6);
+      }
+      if (node8.parentNode) {
+        node8.parentNode.removeChild(node8);
+      }
+      if (node9.parentNode) {
+        node9.parentNode.removeChild(node9);
+      }
+
+    }
+
+
+
+    if (e.value === '8') {
+      
+      document.getElementById('render8').style.display = 'block';
+      
+      if (node6.parentNode) {
+        node6.parentNode.removeChild(node6);
+      }
+      if (node7.parentNode) {
+        node7.parentNode.removeChild(node7);
+      }
+      if (node9.parentNode) {
+        node9.parentNode.removeChild(node9);
+      }
+
+    }
+
+
+    if (e.value === '9') {
+    
+      document.getElementById('render9').style.display = 'block';
+      
+      if (node6.parentNode) {
+        node6.parentNode.removeChild(node6);
+      }
+      if (node7.parentNode) {
+        node7.parentNode.removeChild(node7);
+      }
+      if (node8.parentNode) {
+        node8.parentNode.removeChild(node8);
+      }
+    }
+
+
+  }
+</script>
 
 
   <!-- MÊS DE ABRIL -->
@@ -125,7 +273,7 @@
 
 <script>
   // Capturando valeu do input radios
-    var serie = "serie";
+    var serie = "";
     var turma = "turma";
     let targetGlobal; 
 
@@ -141,10 +289,12 @@
       //});
     }
 
+    
+
     function vai(){
-      let serie = document.querySelector('input[name="serie"]:checked').value;
+      let serie = document.querySelector('input[name="serie"]:checked').value
       //let turma = document.querySelector('input[name="turma"]:checked').value;
-      let nomeAluno = document.getElementById('nomeAluno').value;
+      let nomeAluno = (document.getElementById('nomeAluno').value).toUpperCase();
       console.log(`Nome do aluno(a): ${nomeAluno}`);
       console.log(`Serie: ${serie} Turma: ${turma}`);
 
