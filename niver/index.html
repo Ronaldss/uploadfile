@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Feliz aniversário</title>
+		<meta name="autor" content="Anézio Fidalgo" />
+		<meta name="autor" content="C3bola" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="container2" >
+			<div class="stars" ></div>
+			<div class="stars2" ></div>
+			<div class="container" id="filhos">
+				<div class="balloon">
+					<div id="b1">
+						<span>E</span>
+					</div>
+					<div id="b2">
+						<span>m</span>
+					</div>
+					<div id="b3">
+						<span>a</span>
+					</div>
+					<div id="b4">
+						<span>n</span>
+					</div>
+					<div id="b5">
+						<span>u</span>
+					</div>
+					<div id="b6"> 
+						<span>e</span>
+					</div>
+					<div id="b7">
+						<span>l</span>
+					</div>
+					<div id="b8"> 
+						<span>l</span>
+					</div>
+					<div id="b9">
+						<span>a</span>
+					</div>
+				</div>
+
+				<h1>Feliz aniversário</h1>
+				<h2>professora!</h2>
+				<button onclick="music()" id="btn">Soltar</button>
+			</div>
+		</div>
+		
+		<script>
+			var div = document.getElementById('b1');
+
+			let i = 500;
+			let variavel;
+			function minhaFuncao() {
+				variavel = setInterval(subir, 10);
+			}
+			function subir() {
+				
+				let div = document.getElementById('b1');
+				div.style.top = `${i}px`;
+
+				let div2 = document.getElementById('b2');
+				div2.style.top = `${i}px`;
+
+				let div3 = document.getElementById('b3');				
+				div3.style.top = `${i}px`;
+
+				let div4 = document.getElementById('b4');
+				div4.style.top = `${i}px`;
+
+				let div5 = document.getElementById('b5');
+				div5.style.top = `${i}px`;
+
+				let div6 = document.getElementById('b6');				
+				div6.style.top = `${i}px`;
+
+				let div7 = document.getElementById('b7');
+				div7.style.top = `${i}px`;
+
+				let div8 = document.getElementById('b8');		
+				div8.style.top = `${i}px`;
+
+				let div9 = document.getElementById('b9');
+				div9.style.top = `${i}px`;
+
+				
+				i--;
+
+				if (i == -480) {
+					let minhaDiv = document.getElementById('filhos');
+					document.location.reload(true);
+				}
+				
+			}
+			document.getElementById("btn").onclick = minhaFuncao;
+
+			
+		</script>
+		<audio src="./niver.mp3"></audio>
+		<button>Soltar</button>
+		<script>
+			const button = document.querySelector('button')
+			button.addEventListener('click', function(){
+				const audio =  document.querySelector('audio')
+				audio.play();
+			})
+		</script>
+	</body>
+	
+</html>
