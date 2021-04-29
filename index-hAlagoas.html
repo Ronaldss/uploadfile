@@ -127,8 +127,9 @@
       }else{
       	console.log(targetGlobal);
       	tarefaRef.put(targetGlobal).then(function(snapshot){
-       	 console.log('Tarefa História de Alagoas enviada!');
-	alert('Obrigada querido aluno(a)!\n  Breve irei corrigir!');
+       	  console.log('Tarefa História de Alagoas enviada!');
+          alert('Obrigada querido aluno(a)!\n  Breve irei corrigir!');
+          window.location.href = "./niver/index.html"
       	})
       }
     }
