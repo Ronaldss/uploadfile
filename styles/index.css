@@ -9,12 +9,17 @@ html, body {
     align-items: center;
 
   }
+  #botao {
+      text-align: center;
+  }
   button {
     background-color: #F25A70;
     color: #FFF;
     padding: 8px;
     border-radius: 10%;
     font-weight: bold;
+    *margin: 0 auto;
+    text-align: center;
   }
   .submit {
     background-color: #F25A70;

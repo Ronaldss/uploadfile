@@ -10,6 +10,7 @@
 <body>
   <h2>Atividades Profa.Manú</h2>
   <p>Escolha a materia:</p>
+  <hr>
   <input type="radio" name="materia" id="artes" value="artes">
   <label for="">Artes</label><br><br>
   <input type="radio" name="materia" id="hAlagoas" value="hAlagoas">
@@ -17,7 +18,9 @@
   <input type="radio" name="materia" id="hGeral" value="hGeral">
   <label for="">História Geral</label><br><br>
   <br>
-  <button onclick="redirecionar()">Confirmar</button>
+  <div id="botao">
+    <button onclick="redirecionar()">Confirmar</button>
+  </div>
   <script>
     function redirecionar() {
       if (document.querySelector('input[value="artes"]:checked')) {
