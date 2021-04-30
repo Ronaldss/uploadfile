@@ -9,9 +9,8 @@
 <body>
   <h1>História Geral</h1><br>
   Nome completo: <input type="text" required="" name="nomeAluno" id="nomeAluno"><br><br><hr>
-  
+<form name="form"> 
   <p>Qual sua série:</p>
-  
   <input type="radio" name="serie" id="6" value="6">
   <label for="">6</label><br>
 
@@ -20,9 +19,9 @@
 
   <input type="radio" name="serie" id="8" value="8">
   <label for="">8</label><br><br>
- 
-  <hr>
-
+</form>
+<hr>
+<form name="form-turma">
   <p>Qual sua turma:</p>
   <input type="radio" name="turma" id="A" value="A">
   <label for="">A</label><br>
@@ -40,9 +39,128 @@
   <label for="">E</label><br>
 
   <input type="radio" name="turma" id="F" value="F">
-  <label for="">F</label><br>
+  <label for="">F</label><br><br><hr>
+</form> 
 
-  <br><br><hr>
+
+  <!-- TAREFAS MÊS DE ABRIL -->
+<div id="render6">
+  <!-- Título das tarefas  6 ANO-->
+  <label for="tarefa"> Escolha o título da tarefa 6 ANO</label>
+  <select name="tarefa" id="tarefa">
+    <option value="06.04.2021">Semana 1 - Abril</option>
+    <option value="13.04.2021">Semana 2 - Abril</option>
+    <option value="21.04.2021">Semana 3 - Abril</option>
+    <option value="24.04.2021">Semana 4 - Abril</option>
+    <option value="28.04.2021">Jogo Labirinto</option>
+  </select><br><br><br>
+</div>
+
+   <!-- Título das tarefas 7 ANO-->
+   <div id="render7">
+    <label for="tarefa"> Escolha o título da tarefa 7 ANO</label>
+    <select name="tarefa" id="tarefa">
+     <option value="06.04.2021">Semana 1 - Abril</option>
+     <option value="13.04.2021">Semana 2 - Abril</option>
+     <option value="21.04.2021">Semana 3 - Abril</option>
+     <option value="24.04.2021">Semana 4 - Abril</option>
+     <option value="28.04.2021">Jogo Labirinto</option>
+    </select><br><br><br>
+   </div>
+    
+ 
+   <!-- Título das tarefas  8 ANO-->
+   <div id="render8">
+   <label for="tarefa"> Escolha o título da tarefa 8 ANO</label>
+   <select name="tarefa" id="tarefa">
+     <option value="06.04.2021">Semana 1 - Abril</option>
+     <option value="13.04.2021">Semana 2 - Abril</option>
+     <option value="21.04.2021">Semana 3 - Abril</option>
+     <option value="24.04.2021">Semana 4 - Abril</option>
+     <option value="28.04.2021">Jogo Labirinto</option>
+   </select><br><br><br>
+ </div>
+
+
+ <script>
+  // Alterando titulos de tarefas de acordo com turma de aluno ao clickar no input:radio
+
+  document.getElementById('render6').style.display = 'none';
+  document.getElementById('render7').style.display = 'none';
+  document.getElementById('render8').style.display = 'none';
+
+  var rad = document.form.serie;
+  var prev = null;
+  for (var i = 0; i < rad.length; i++) {
+  rad[i].onclick = function() {
+    qualquerFuncao(this);
+  }
+  };
+
+  function qualquerFuncao(e) {
+    console.log(e.value);
+    //container.style.display = 'block';
+
+    let node6 = document.getElementById("render6");
+    let node7 = document.getElementById("render7");
+    let node8 = document.getElementById("render8");
+
+//----------------------------------------------------------------
+    if (node6 == null) {
+      console.log('Filho não existe, então restart');
+      document.location.reload(true);
+    }
+    if (node7 == null) {
+      console.log('Filho não existe, então restart');
+      document.location.reload(true);
+    }
+    if (node8 == null) {
+      console.log('Filho não existe, então restart');
+      document.location.reload(true);
+    }
+//----------------------------------------------------------------
+
+    if (e.value === '6') {
+
+      document.getElementById('render6').style.display = 'block';
+      
+      if (node7.parentNode) {
+        node7.parentNode.removeChild(node7);
+      }
+      if (node8.parentNode) {
+        node8.parentNode.removeChild(node8);
+      }
+    }
+
+
+    if (e.value === '7') {
+      
+      document.getElementById('render7').style.display = 'block';
+      
+      if (node6.parentNode) {
+        node6.parentNode.removeChild(node6);
+      }
+      if (node8.parentNode) {
+        node8.parentNode.removeChild(node8);
+      }
+    }
+
+
+
+    if (e.value === '8') {
+      
+      document.getElementById('render8').style.display = 'block';
+      
+      if (node6.parentNode) {
+        node6.parentNode.removeChild(node6);
+      }
+      if (node7.parentNode) {
+        node7.parentNode.removeChild(node7);
+      }
+    }
+  }
+</script>
+
 
   <p>Salvar tarefa aqui:</p>
   <input type="file" id="file" onchange="__funcPasta(this)"><br><br><hr>
@@ -96,7 +214,7 @@
 
 <script>
   // Capturando valeu do input radios
-    var serie = "serie";
+    var serie = "";
     var turma = "turma";
     let targetGlobal; 
 
@@ -124,12 +242,15 @@
       let storage = firebase.storage();
       let storageRef = storage.ref();
 
+      // Valor do option
+      var select = document.getElementById('tarefa');
+	    var value = select.options[select.selectedIndex].value;
+	    console.log(`Valor do option: ${value}`);
+
       // Criando os filhos
       let texto = storageRef.child('Arquivo.txt');
       let imagemRef = storageRef.child('imagem-raiz.jpg');
-      let tarefaRef = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${nomeAluno}`);
-      let tarefaRef_7 = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${nomeAluno}`);
-      let tarefaRef_8 = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${nomeAluno}`);
+      let tarefaRef = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${value}/${nomeAluno}`);
       console.log(`Filho tarefa: ${tarefaRef}`);
 
       let campoNome = document.getElementById('nomeAluno').value;
@@ -147,7 +268,7 @@
         alert('Você esqueceu de anexar a tarefa!')
         window.location.hef = "./index-artes.html"
       }
-      // Enviar formulario
+      // Enviar forrmulario
       if (campoNome != "" && (!targetGlobal === false)) {
      	  console.log(targetGlobal);
       	tarefaRef.put(targetGlobal).then(function(snapshot){
