@@ -117,7 +117,7 @@
     function vai(){
       //let serie = document.querySelector('input[name="serie"]:checked').value;
       let turma = document.querySelector('input[name="turma"]:checked').value;
-      let nomeAluno = document.getElementById('nomeAluno').value;
+      let nomeAluno = (document.getElementById('nomeAluno').value).toUpperCase();
       console.log(`Nome do aluno(a): ${nomeAluno}`);
       console.log(`Serie: ${serie} Turma: ${turma}`);
 
