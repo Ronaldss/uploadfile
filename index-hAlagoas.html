@@ -32,6 +32,20 @@
 
   <br><br><hr>
 
+
+  <!-- TAREFAS MÊS DE ABRIL -->
+<div id="render6">
+  <!-- Título das tarefas  6 ANO-->
+  <label for="tarefa"> Escolha o título da tarefa 6 ANO</label>
+  <select name="tarefa" id="tarefa">
+    <option value="06.04.2021">Semana 1 - Abril</option>
+    <option value="13.04.2021">Semana 2 - Abril</option>
+    <option value="21.04.2021">Semana 3 - Abril</option>
+    <option value="24.04.2021">Semana 4 - Abril</option>
+    <option value="28.04.2021">Jogo Labirinto</option>
+  </select><br><br><br>
+</div><hr>
+
   <p>Salvar tarefa aqui:</p>
   <input type="file" id="file" onchange="__funcPasta(this)"><br><br><hr>
 
@@ -112,10 +126,15 @@
       let storage = firebase.storage();
       let storageRef = storage.ref();
 
+      // Valor do option
+      var select = document.getElementById('tarefa');
+	    var value = select.options[select.selectedIndex].value;
+	    console.log(`Valor do option: ${value}`);
+
       // Criando os filhos
       let texto = storageRef.child('Arquivo.txt');
       let imagemRef = storageRef.child('imagem-raiz.jpg');
-      let tarefaRef = storageRef.child(`Historia-AL/6/${turma}/${nomeAluno}`);
+      let tarefaRef = storageRef.child(`Historia-AL/6/${turma}/${value}/${nomeAluno}`);
       console.log(`Filho tarefa: ${tarefaRef}`);
       
       let campoNome = document.getElementById('nomeAluno').value;
