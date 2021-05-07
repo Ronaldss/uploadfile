@@ -47,7 +47,7 @@
 </div><hr>
 
   <p>Salvar tarefa aqui:</p>
-  <input type="file" id="file" onchange="__funcPasta(this)"><br><br><hr>
+  <input type="file" id="arquivoUP" onchange="__funcPasta(this)" accept=".jpg, .jpeg, .png, .svg, .gif, .txt, .pdf" multiple><br><br><hr>
   <div id="botao">
     <input onclick="vai()" class="submit" type="submit" value="Enviar">
   </div>
@@ -134,21 +134,46 @@
       // Criando os filhos
       let texto = storageRef.child('Arquivo.txt');
       let imagemRef = storageRef.child('imagem-raiz.jpg');
-      let tarefaRef = storageRef.child(`Historia-AL/6/${turma}/${value}/${nomeAluno}`);
-      console.log(`Filho tarefa: ${tarefaRef}`);
+      //let tarefaRef = storageRef.child(`Historia-AL/6/${turma}/${value}/${nomeAluno}`);
+      //console.log(`Filho tarefa: ${tarefaRef}`);
       
       let campoNome = document.getElementById('nomeAluno').value;
       console.log(`Valor do campo Nome do Aluno: ${nomeAluno}`);
       if (campoNome == "") {
-	console.log('Campo Nome não preenchido');
-	alert('Digite seu nome');
-	window.location.hef = "./index-hAlagoas.html"
-      }else{
-      	console.log(targetGlobal);
-      	tarefaRef.put(targetGlobal).then(function(snapshot){
-       	  console.log('Tarefa História de Alagoas enviada!');
-          alert('Obrigada querido aluno(a)!\nBreve irei corrigir!');
-      	})
+        console.log('Campo Nome não preenchido');
+        alert('Digite seu nome');
+        window.location.hef = "./index-hAlagoas.html"
+      }
+      // Verifique se existe um arquivo
+      if (!targetGlobal) {
+        console.log('Arquivo não anexado!')
+        alert('Você esqueceu de anexar a tarefa!')
+        window.location.hef = "./index-artes.html"
+      }
+      // Testando envio de varios arquivos simultaneos
+      console.log('Iniciando teste upload mult...')
+      let fileInput = document.getElementById('arquivoUP')
+      let arquivos = fileInput.files
+      let arq
+      console.log(arquivos)
+      
+      for (var i=0; i < arquivos.length; i++){
+        //obter o item 
+        arq = arquivos[i]
+
+        // Criando filhos [teste]
+        let tarefaRef = storageRef.child(`Historia-AL/6/${turma}/${value}/${nomeAluno}-${arq.name}`);
+
+        console.log(`Nome do arquivo: ${arq.name}`)
+
+        // Enviado dados para Firebase
+        if (campoNome != "" && (!targetGlobal === false)) {
+          console.log(targetGlobal);
+          tarefaRef.put(arq).then(function(snapshot){
+            console.log('Tarefa de Artes enviada!');
+            alert('Obrigado querido aluno(a)! \nBreve irei corrigir!');
+          })  
+        }
       }
     }
 
