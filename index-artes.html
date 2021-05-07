@@ -31,7 +31,7 @@
 <div id="render6">
   <!-- Título das tarefas  6 ANO-->
   <label for="tarefa"> Escolha o título da tarefa 6 ANO</label>
-  <select name="tarefa" id="tarefa">
+  <select multiple name="tarefa" id="tarefa">
     <option value="06.04.2021">Semana 1 - Abril</option>
     <option value="13.04.2021">Semana 2 - Abril</option>
     <option value="21.04.2021">Semana 3 - Abril</option>
@@ -201,7 +201,7 @@
 </script>
 
   <p>Salvar tarefa aqui:</p>
-  <input type="file" id="arquivoUP" onchange="__funcPasta(this)"><br><br><hr>
+  <input type="file" id="arquivoUP" onchange="__funcPasta(this)" name="uploads" accept=".jpg, .jpeg, .png, .svg, .gif, .txt, .pdf" multiple><br><br><hr>
   <div id="botao">
     <input onclick="vai()" class="submit" type="submit" value="Enviar">
   </div>  
@@ -251,7 +251,7 @@
 </script>
 
 <script>
-  // Capturando valeu do input radios
+  // Capturando value do input radios
     var serie = "";
     var turma = "turma";
     let targetGlobal; 
@@ -291,8 +291,8 @@
       // Criando os filhos
       let texto = storageRef.child('Arquivo.txt');
       let imagemRef = storageRef.child('imagem-raiz.jpg');
-      let tarefaRef = storageRef.child(`Arte/${serie}/${value}/${nomeAluno}`);
-      console.log(`Filho tarefa: ${tarefaRef}`);
+      //let tarefaRef = storageRef.child(`Arte/${serie}/${value}/${nomeAluno}-${arq.name}`);
+      //console.log(`Filho tarefa: ${tarefaRef}`);
 
       let campoNome = document.getElementById('nomeAluno').value;
       console.log(`Valor do campo Nome do Aluno: ${nomeAluno}`);
@@ -309,15 +309,37 @@
         alert('Você esqueceu de anexar a tarefa!')
         window.location.hef = "./index-artes.html"
       }
-      if (campoNome != "" && (!targetGlobal === false)) {
-      	console.log(targetGlobal);
-      	tarefaRef.put(targetGlobal).then(function(snapshot){
-        console.log('Tarefa de Artes enviada!');
-	      alert('Obrigado querido aluno(a)! \nBreve irei corrigir!');
-      })
-      }
+      // Testando envio de varios arquivos simultaneos
+      console.log('Iniciando teste upload mult...')
+      let fileInput = document.getElementById('arquivoUP')
+      let arquivos = fileInput.files
+      let arq
+      console.log(arquivos)
+
+      // Criando filhos [teste]
+      //let tarefaRef = storageRef.child(`Arte/${serie}/${value}/${nomeAluno}-${arq.name}`);
+
+      for (var i = 0; i < arquivos.length; i++) {
+        //obter o item 
+        arq = arquivos[i]
+
+        // Criando filhos [teste]
+        let tarefaRef = storageRef.child(`Arte/${serie}/${value}/${nomeAluno}-${arq.name}`);
+
+        console.log(`Nome do arquivo: ${arq.name}`)
+
+        // Enviado dados para Firebase
+        if (campoNome != "" && (!targetGlobal === false)) {
+          console.log(targetGlobal);
+          tarefaRef.put(arq).then(function(snapshot){
+            console.log('Tarefa de Artes enviada!');
+            alert('Obrigado querido aluno(a)! \nBreve irei corrigir!');
+          })  
+        }
+      }      
     }
 
+   
 // Criando os filhos
 //var texto = storageRef.child('Arquivo.txt');
 //var imagemRef = storageRef.child('imagem-raiz.jpg');

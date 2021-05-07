@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testes</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <p>
+          <label for="uploads">
+             Choose the images you want to upload:
+          </label>
+          <input type="file" id="uploads" name="uploads" accept=".jpg, .jpeg, .png, .svg, .gif" multiple>
+        </p>
+        <p>
+          <label for="text">Pick a text file to upload: </label>
+          <input type="file" id="text" name="text" accept=".txt">
+       </p>
+        <p>
+          <input type="submit" onclick="mostrar()" value="Submit">
+        </p>
+      </form>
+<script>
+	function mostrar(){
+		  console.log('Iniciando...')
+		  var fileInput = document.getElementById('uploads')
+      var files = fileInput.files;
+      var file;
+
+      // percorre os arquivos
+      for (var i = 0; i < files.length; i++) {
+          // obtém o item
+          file = files.item(i);
+          // ou
+          file = files[i];
+
+          alert(file.name);
+          console.log(file.name)
+      }
+    }
+</script>
+</body>
+</html>
