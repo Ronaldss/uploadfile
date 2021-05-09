@@ -333,10 +333,14 @@
           console.log(targetGlobal);
           tarefaRef.put(arq).then(function(snapshot){
             console.log('Tarefa de Artes enviada!');
-            alert('Obrigado querido aluno(a)! \nBreve irei corrigir!');
           })  
         }
-      }      
+      } 
+      if (arquivos[arquivos.length-1]){
+        setTimeout(function(){ 
+          alert("Obrigado querido aluno(a)! \nBreve irei corrigir!"); 
+        }, 3500);
+      }     
     }
 
    

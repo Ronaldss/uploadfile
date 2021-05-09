@@ -163,7 +163,7 @@
 
 
   <p>Salvar atividade aqui:</p>
-  <input type="file" id="file" onchange="__funcPasta(this)"><br><br><hr>
+  <input type="file" id="arquivoUP" onchange="__funcPasta(this)" accept=".jpg, .jpeg, .png, .svg, .gif, .txt, .pdf" multiple><br><br><hr>
 <div id="botao">
   <input onclick="vai()" class="submit" type="submit" value="Enviar">
 </div>
@@ -251,8 +251,8 @@
       // Criando os filhos
       let texto = storageRef.child('Arquivo.txt');
       let imagemRef = storageRef.child('imagem-raiz.jpg');
-      let tarefaRef = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${value}/${nomeAluno}`);
-      console.log(`Filho tarefa: ${tarefaRef}`);
+      //let tarefaRef = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${value}/${nomeAluno}`);
+      //console.log(`Filho tarefa: ${tarefaRef}`);
 
       let campoNome = document.getElementById('nomeAluno').value;
       console.log(`Valor do campo nome do Aluno: ${campoNome}`);
@@ -269,13 +269,34 @@
         alert('Você esqueceu de anexar a tarefa!')
         window.location.hef = "./index-artes.html"
       }
-      // Enviar forrmulario
-      if (campoNome != "" && (!targetGlobal === false)) {
-     	  console.log(targetGlobal);
-      	tarefaRef.put(targetGlobal).then(function(snapshot){
-        console.log('Tarefa de História Geral Enviada!');
-		    alert('Obrigada querido aluno(a)! \nBreve irei corrigir.');
-        })
+       // Testando envio de varios arquivos simultaneos
+       console.log('Iniciando teste upload mult...')
+      let fileInput = document.getElementById('arquivoUP')
+      let arquivos = fileInput.files
+      let arq
+      console.log(arquivos)
+      
+      for (var i=0; i < arquivos.length; i++){
+        //obter o item 
+        arq = arquivos[i]
+
+        // Criando filhos [teste]
+        let tarefaRef = storageRef.child(`Historia-Geral/${serie}/${serie}-${turma}/${value}/${nomeAluno}-${arq.name}`);
+
+        console.log(`Nome do arquivo: ${arq.name}`)
+
+        // Enviado dados para Firebase
+        if (campoNome != "" && (!targetGlobal === false)) {
+          console.log(targetGlobal);
+          tarefaRef.put(arq).then(function(snapshot){
+            console.log('Tarefa de Artes enviada!');
+          })  
+        }
+      }
+      if (arquivos[arquivos.length-1]){
+        setTimeout(function(){ 
+          alert("Obrigado querido aluno(a)! \nBreve irei corrigir!"); 
+        }, 3500);
       }
     }
 
