@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./styles/index.css" >
   <title>Uploadfile</title>
 </head>
 <body>
-  <h1>Materia de ARTE</h1><br>
-  Nome completo: <input type="text" name="nomeAluno" id="nomeAluno">
-  
-
+  <h2>Materia de ARTE</h2><br>
+<div class="aling-left">  
+  Nome completo: <input type="text" class="efeito" name="nomeAluno" id="nomeAluno">
+<br><br>  
+<hr>
 <form name="form">
   <p>Qual sua série:</p>
   
@@ -199,7 +203,7 @@
 
   }
 </script>
-
+<hr>
   <p>Salvar tarefa aqui:</p>
   <input type="file" id="arquivoUP" onchange="__funcPasta(this)" name="uploads" accept=".jpg, .jpeg, .png, .svg, .gif, .txt, .pdf" multiple><br><br><hr>
   <div id="botao">
@@ -324,7 +328,7 @@
         arq = arquivos[i]
 
         // Criando filhos [teste]
-        let tarefaRef = storageRef.child(`Arte/${serie}/${value}/${nomeAluno}-${arq.name}`);
+        let tarefaRef = storageRef.child(`Arte/${serie}/${value}/${nomeAluno} - ${arq.name}`);
 
         console.log(`Nome do arquivo: ${arq.name}`)
 
@@ -369,9 +373,7 @@ function __func(target)
     console.log('Upload de imagem concluido!!');
   });
 }
-
-
-
 </script>
+</div> <!-- class aling-left -->
 </body>
 </html>

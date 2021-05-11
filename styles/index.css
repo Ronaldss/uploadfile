@@ -7,6 +7,8 @@ html, body {
     color: #FFF;
     justify-content:center;
     align-items: center;
+    font-family: 'Press Start 2P';
+    font-size: 12px;
 
   }
   #botao {
@@ -30,11 +32,19 @@ html, body {
   } 
   h1 {
     background-color: #130211;
+    text-shadow: 0.1em 0.1em 0.15em #ff69b4;
     margin: 0;
     padding: 20px;
   }
   h2 {
     background-color: #130211;
+    text-shadow: 0.1em 0.1em 0.15em #ff69b4;
     margin: 0;
     padding: 20px;
+  }
+  .efeito {
+    text-shadow: 0.1em 0.1em 0.15em #ff69b4;
+  }
+  .aling-left {
+    padding-left: 10px;
   }
