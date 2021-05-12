@@ -7,7 +7,7 @@ html, body {
     color: #FFF;
     justify-content:center;
     align-items: center;
-    font-family: 'Press Start 2P';
+    
     font-size: 12px;
 
   }
@@ -35,12 +35,14 @@ html, body {
     text-shadow: 0.1em 0.1em 0.15em #ff69b4;
     margin: 0;
     padding: 20px;
+    font-family: 'Press Start 2P';
   }
   h2 {
     background-color: #130211;
     text-shadow: 0.1em 0.1em 0.15em #ff69b4;
     margin: 0;
     padding: 20px;
+    font-family: 'Press Start 2P';
   }
   .efeito {
     text-shadow: 0.1em 0.1em 0.15em #ff69b4;
