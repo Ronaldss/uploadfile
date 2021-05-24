@@ -50,3 +50,6 @@ html, body {
   .aling-left {
     padding-left: 10px;
   }
+  a {
+    color: #FFF;
+  }
