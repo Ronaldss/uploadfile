@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="https://github.com/ronaldss">
+	<meta name="description" content="Olá querido aluno(a)! Anexe suas atividades aqui, juntos venceremos este período e logo estaremos juntos em sala de aula! Profª Manu - História | Arte 😉">
+  <meta property="og:image" content="https://uploadfile.vercel.app//assets/img/profManu.png">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+	<link rel="shortcut icon" href="./assets/img/favicon.ico" type="imagem/icon">
+  
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" href="styles/gradient.css">
+  <link rel="stylesheet" href="styles/efeitoBT.css">
+  
+  <title>Profª Emanuella</title>
+</head>
+<body class="gradient-ati">
+  <h2>Atividades</h2>
+  <p style="font-weight: bold; margin-left: 10px;">Escolha a matéria:</p>
+  <hr>
+  <input type="radio" name="materia" id="artes" value="artes">
+  <label for="">Artes</label><br><br>
+  <input type="radio" name="materia" id="hAlagoas" value="hAlagoas">
+  <label for="">História de Alagoas</label><br><br>
+  <input type="radio" name="materia" id="hGeral" value="hGeral">
+  <label for="">História Geral</label><br><br>
+  <br>
+  <div id="botao">
+    <button class="efeitoBt" onclick="redirecionar()">Confirmar</button>
+  </div><br>
+  <script>
+    function redirecionar() {
+      if (document.querySelector('input[value="artes"]:checked')) {
+        console.log("Artes foi marcado!")
+        window.location.href = "./index-artes.html"
+      }
+      if (document.querySelector('input[value="hAlagoas"]:checked')) {
+        console.log("hAlagoas foi marcado!")
+        window.location.href = "./index-hAlagoas.html"
+      }
+      if (document.querySelector('input[value="hGeral"]:checked')) {
+        console.log("hGeral foi marcado!")
+        window.location.href = "./index-hGeral.html"
+      }
+    }
+  </script>
+</body>
+</html>

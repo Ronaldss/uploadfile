@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+  }
+  .wrapper {
+    margin: auto;
+    width: 90%;
+  }
+  .wrapper a {
+    text-decoration: none;
+    color: #fff;
+  }
+  iframe {
+    margin-bottom: 25px;
+  }
+  .voltar {
+    margin-top:25px;
+  }
+  h2 {
+    background-color: #130211;
+    text-shadow: 0.1em 0.1em 0.15em #ff69b4;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Press Start 2P';
+  }

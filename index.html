@@ -1,74 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="author" content="https://github.com/ronaldss">
-	<meta name="description" content="Olá querido aluno(a)! Anexe suas atividades aqui, juntos venceremos este período e logo estaremos juntos em sala de aula! Profª Manu - História | Arte 😉">
-  <meta property="og:image" content="https://uploadfile.vercel.app//assets/img/profManu.png">
-  <meta name="robots" content="index, follow">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-	<link rel="shortcut icon" href="./assets/img/favicon.ico" type="imagem/icon">
-
-  <link rel="stylesheet" href="./styles/index.css">
-  <title>Profª Emanuella</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="author" href="https://github.com/Ronaldss"/>
+    <meta name="description" content="Olá querido aluno(a)! Anexe suas atividades aqui, juntos venceremos este período e logo estaremos juntos em sala de aula! Profª Manu - História | Arte 😉">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Ronaldss/uploadfile/main/assets/img/profManu.png">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="styles/index-options.css">
+    <link rel="stylesheet" href="styles/gradient.css">
+    <title>Menu</title>
 </head>
-<body>
-  <h2>Atividades Profa Manú</h2>
-  <p>Escolha a matéria:</p>
-  <hr>
-  <input type="radio" name="materia" id="artes" value="artes">
-  <label for="">Artes</label><br><br>
-  <input type="radio" name="materia" id="hAlagoas" value="hAlagoas">
-  <label for="">História de Alagoas</label><br><br>
-  <input type="radio" name="materia" id="hGeral" value="hGeral">
-  <label for="">História Geral</label><br><br>
-  <br>
-  <div id="botao">
-    <button onclick="redirecionar()">Confirmar</button>
-  </div><br>
-  <script>
-    function redirecionar() {
-      if (document.querySelector('input[value="artes"]:checked')) {
-        console.log("Artes foi marcado!")
-        window.location.href = "./index-artes.html"
-      }
-      if (document.querySelector('input[value="hAlagoas"]:checked')) {
-        console.log("hAlagoas foi marcado!")
-        window.location.href = "./index-hAlagoas.html"
-      }
-      if (document.querySelector('input[value="hGeral"]:checked')) {
-        console.log("hGeral foi marcado!")
-        window.location.href = "./index-hGeral.html"
-      }
-    }
-  </script>
-  
-  <br><br>
-  <h2>Podcast</h2>
-  <p>Pré-história | Período Paleolítico</p>
-  <hr>
-  <iframe src="https://anchor.fm/profamanu/embed/episodes/Pr-histria--Perodo-Paleoltico-e11f8em" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
-  <br><br>
-  <p>Pré-história | Revolução Neolítica</p>
-  <hr>
-  <iframe src="https://anchor.fm/profamanu/embed/episodes/Pr-histria--Revoluo-Neoltica-e11fbb4/a-a5lmeeg" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
-  <br><br>
-  <p>Pré-história | Idade dos metais</p>
-  <hr>
-  <iframe src="https://anchor.fm/profamanu/embed/episodes/Pr-histria--Idade-dos-metais-e11fbtk/a-a5lmiei" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
-  <br><br>
-  <h2>Vídeos</h2>
-  <p>Como identificar os séculos?</p>
-  <hr>
-  <iframe width="460" height="215" src="https://www.youtube.com/embed/n11_2M_n7ek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <br>
-  <a href="https://www.youtube.com/watch?v=n11_2M_n7ek&t=64s">Deixe seu like aqui</a>
-
+<body class="gradient">
+<h2 style="border-bottom: solid 2px #fff;">ProfaManu</h2>
+<div class="wrapper">
+  <!--<h2>ProfaManu</h2>-->
+  <br><br><br>
+  <q>Sucesso é o acúmulo de pequenos esforços, repetidos dia a dia.</q><br>
+  <i>Robert Collier</i>
+  <br><br><br>
+  <nav>
+    <div id="div1" class="efeitoBt">  
+        <a href="./index-atividades.html"><img style="width: 20%;" src="./assets/img/book.png" alt="Atividades"></a>
+        <a href="./index-atividades.html"><p>Atividades</p></a>
+    </div><!--
+    --><div id="div2" class="efeitoBt">
+        <a href="./podcast.html"><img style="width: 20%;" src="./assets/img/podcast.png" alt="Podcast"></a>
+        <a href="./podcast.html"><p>Podcast</p></a>
+    </div>
+    <div id="div3" class="efeitoBt">
+        <a href="./videos.html"><img style="width: 20%;" src="./assets/img/videos.png" alt="Vídeos"></a>
+        <a href="./videos.html"><p>Vídeos</p></a>
+    </div><!--
+    --><div id="div4" class="efeitoBt">
+        <a href="./gamificacao.html"><img style="width: 20%;" src="./assets/img/game.png" alt="Games da professora Manú"></a>
+        <a href="./gamificacao.html"><p>Gamificação</p></a>
+    </div>
+  </nav>
+</div>
 </body>
 </html>

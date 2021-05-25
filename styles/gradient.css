@@ -1,0 +1,131 @@
+.gradient {
+    *display: flex;
+    *align-items: center;
+    *justify-content: center;
+    *height: 100vh;
+    *width: 100vw;
+
+    /* Colors generated on: https://colorhunt.co/palette/179481 */
+    background: linear-gradient(45deg, #f80091, #ff00ea, #5500ff, #02eff7);
+    background-size: 300% 300%;
+    animation: colors 15s ease infinite;
+  }
+
+  @keyframes colors {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .text {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+  .gradient-ati {
+    *display: flex;
+    *align-items: center;
+    *justify-content: center;
+    *height: 100vh;
+    *width: 100vw;
+
+    /* Colors generated on: https://colorhunt.co/palette/179481 */
+    background: linear-gradient(45deg, #3A4042, #393e3f, #130211, #130211);
+    background-size: 300% 300%;
+    animation: colors 15s ease infinite;
+  }
+
+  @keyframes colors {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .text {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+
+
+
+  .gradient-pod {
+    *display: flex;
+    *align-items: center;
+    *justify-content: center;
+    *height: 100vh;
+    *width: 100vw;
+
+    /* Colors generated on: https://colorhunt.co/palette/179481 */
+    background: linear-gradient(45deg, #43b14e, #06a015, #011c04, #000);
+    background-size: 300% 300%;
+    animation: colors 15s ease infinite;
+  }
+
+  @keyframes colors {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .text {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+
+  .gradient-vid {
+    *display: flex;
+    *align-items: center;
+    *justify-content: center;
+    *height: 100vh;
+    *width: 100vw;
+
+    /* Colors generated on: https://colorhunt.co/palette/179481 */
+    background: linear-gradient(45deg, #fff, #fff #fff, #fff);
+    background-size: 300% 300%;
+    animation: colors 15s ease infinite;
+  }
+
+  @keyframes colors {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .text {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+    }
+  }

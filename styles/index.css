@@ -53,3 +53,20 @@ html, body {
   a {
     color: #FFF;
   }
+
+
+  /* videos.html */
+  h1 {
+    font-size: 40px;
+  }
+  .wrapper {
+    margin: auto;
+    width: 80%;
+  }
+  nav {
+    text-align: none;
+    width: 100%;
+  }
+  .wrapper img {
+    width: 40%;
+  }

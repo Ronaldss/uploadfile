@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding:0;
+    text-align: center;
+    background: #3A4042;
+    color: #fff;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    background-color: #130211;
+    text-shadow: 0.1em 0.1em 0.15em #ff69b4;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Press Start 2P';
+  }
+  .wrapper {
+    *margin: auto;
+    width: 100%;
+    *background-color: aqua;
+    text-align: none; 
+  }
+  .wrapper img {
+    *width: 40%;
+  }
+  nav {
+    display: inline-block;
+  }
+  #div1 {
+    width: 49%;
+    background-color: #eb3f00;
+    display: inline-block;
+    font-size: .9rem;
+    padding-top: 12px;
+    border: #000 solid 1px;
+  }
+  #div2 {
+    width: 49%;
+    background-color: #0dbb04;
+    display: inline-block;
+    font-size: .9rem;
+    padding-top: 12px;
+    border: #000 solid 1px;
+  }
+  #div3 {
+    width: 49%;
+    background-color: #f31228;
+    display: inline-block;
+    font-size: .9rem;
+    padding-top: 12px;
+    border: #000 solid 1px;
+  }
+  #div4 {
+    width: 49%;
+    background-color: #020af7;
+    display: inline-block;
+    font-size: .9rem;
+    padding-top: 12px;
+    border: #000 solid 1px;
+  }
+  p {
+    margin-top: 0;
+  }
+  a {
+      text-decoration: none;
+      color: #fff;
+  }
+.efeitoBt{
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.efeitoBt:hover{
+    -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+}
+q {
+    font-size: small;
+    font-weight: bold;
+}
+i {
+    font-size: small;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
