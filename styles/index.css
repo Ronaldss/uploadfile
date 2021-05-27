@@ -23,6 +23,15 @@ html, body {
     *margin: 0 auto;
     text-align: center;
   }
+  .button-game-index {
+    background-color: #F25A70;
+    color: #FFF;
+    padding: 28px;
+    border-radius: 10%;
+    font-weight: bold;
+    *margin: 0 auto;
+    text-align: center;
+  }
   .submit {
     background-color: #F25A70;
     color: #FFF;
@@ -70,3 +79,16 @@ html, body {
   .wrapper img {
     width: 40%;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+

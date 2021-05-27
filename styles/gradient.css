@@ -129,3 +129,37 @@
       padding: 1rem 2rem;
     }
   }
+
+  .gradientGame {
+    *display: flex;
+    *align-items: center;
+    *justify-content: center;
+    *height: 100vh;
+    *width: 100vw;
+
+    /* Colors generated on: https://colorhunt.co/palette/179481 */
+    background: linear-gradient(45deg, #020af7, #020af7, #372735, #130211);
+    background-size: 300% 300%;
+    animation: colors 15s ease infinite;
+  }
+
+  @keyframes colors {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .text {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+

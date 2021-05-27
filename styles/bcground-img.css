@@ -1,0 +1,122 @@
+html, body {
+    margin:0;
+    padding: 0;
+  }
+  body {
+    background-image: url("../assets/img/game2.png");
+    *background: #3A4042;
+    *background-repeat: no-repeat;
+    background-size: cover;    
+
+    color: #FFF;
+    justify-content:center;
+    align-items: center;
+    font-size: 12px;
+  }
+  #botao {
+      text-align: center;
+  }
+  button {
+    background-color: #F25A70;
+    background-color: #020AF7;
+    color: #FFF;
+    padding: 8px;
+    border-radius: 10%;
+    font-weight: bold;
+    *margin: 0 auto;
+    text-align: center;
+  }
+  .button-game-index {
+    *background-color: #F25A70;
+    background-color: #020AF7;
+    color: #FFF;
+    padding: 40px;
+    border-radius: 10%;
+    font-weight: bold;
+    *margin: 0 auto;
+    text-align: center;
+  }
+  .submit {
+    background-color: #F25A70;
+    color: #FFF;
+    padding: 8px;
+    border-radius: 10%;
+    font-weight: bold;
+  } 
+  h1 {
+    background-color: #130211;
+    text-shadow: 0.1em 0.1em 0.15em #ff69b4;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Press Start 2P';
+  }
+  h2 {
+    background-color: #130211;
+    text-shadow: 0.1em 0.1em 0.15em #ff69b4;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Press Start 2P';
+  }
+  .efeito {
+    text-shadow: 0.1em 0.1em 0.15em #ff69b4;
+  }
+  .aling-left {
+    padding-left: 10px;
+  }
+  a {
+    color: #FFF;
+  }
+
+
+  /* videos.html */
+  h1 {
+    font-size: 40px;
+  }
+  .wrapper {
+    margin: auto;
+    width: 80%;
+  }
+  nav {
+    text-align: none;
+    width: 100%;
+  }
+  .wrapper img {
+    width: 40%;
+  }
+
+    .robot {
+        height: 163px;
+        width: 150px;
+        background-image: url("../assets/img/robot.png");
+        background-size: cover;
+        *background-color: #3d9970;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
+        color: white;
+        padding: 5px;
+        animation: shimmy 3s infinite;
+        animation-direction: alternate;
+      }
+      
+      @keyframes shimmy {
+        0% {
+          transform: translate(0, 0);    
+        }
+        100% {
+          transform: translate(20px, 50px);
+        }
+      }
+
+
+
+
+
+
+
+
+
+
+
+
