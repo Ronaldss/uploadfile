@@ -12,7 +12,14 @@
     <link rel="stylesheet" href="styles/gradient.css">
     <title>Profa. Manú</title>
 </head>
-<body class="gradient">
+<body class="gradient" onload="TocarMusica()">
+<script>
+    function TocarMusica(){
+        var audio1 = new Audio();
+        audio1.src = "./assets/music/Spring_In_My_Step.mp3";
+        audio1.play();
+    }
+</script>
 <h2 style="border-bottom: solid 2px #fff;">Profa. Manú</h2>
 <div class="wrapper">
   <!--<h2>ProfaManu</h2>-->
