@@ -12,15 +12,20 @@
     <link rel="stylesheet" href="styles/gradient.css">
     <title>Profa. Manú</title>
 </head>
-<body class="gradient" onload="TocarMusica()">
+<body class="gradient">
 <script>
     function TocarMusica(){
         var audio1 = new Audio();
         audio1.src = "./assets/music/Spring_In_My_Step.mp3";
-        audio1.volume = 0.05;
+        audio1.volume = 0.02;
         audio1.play();
         console.log('Music...')
-    }
+    };
+</script>
+<script>
+    var beepButton = new Audio();
+    beepButton.src = "./assets/music/click-on.mp3";
+    beepButton.volume = 1.0;
 </script>
 <h2 style="border-bottom: solid 2px #fff;">Profa. Manú</h2>
 <div class="wrapper">
@@ -31,20 +36,20 @@
   <br><br><br>
   <nav>
     <div id="div1" class="efeitoBt">  
-        <a href="./index-atividades.html"><img style="width: 20%;" src="./assets/img/book.png" alt="Atividades"></a>
-        <a href="./index-atividades.html"><p>Atividades</p></a>
+        <a onmousedown="beepButton.play()" href="./index-atividades.html"><img style="width: 20%;" src="./assets/img/book.png" alt="Atividades"></a>
+        <a onmousedown="beepButton.play()" href="./index-atividades.html"><p>Atividades</p></a>
     </div><!--
     --><div id="div2" class="efeitoBt">
-        <a href="./podcast.html"><img style="width: 20%;" src="./assets/img/podcast.png" alt="Podcast"></a>
-        <a href="./podcast.html"><p>Podcast</p></a>
+        <a onmousedown="beepButton.play()" href="./podcast.html"><img style="width: 20%;" src="./assets/img/podcast.png" alt="Podcast"></a>
+        <a onmousedown="beepButton.play()" href="./podcast.html"><p>Podcast</p></a>
     </div>
     <div id="div3" class="efeitoBt">
-        <a href="./videos.html"><img style="width: 20%;" src="./assets/img/videos.png" alt="Vídeos"></a>
-        <a href="./videos.html"><p>Vídeos</p></a>
+        <a onmousedown="beepButton.play()" href="./videos.html"><img style="width: 20%;" src="./assets/img/videos.png" alt="Vídeos"></a>
+        <a onmousedown="beepButton.play()" href="./videos.html"><p>Vídeos</p></a>
     </div><!--
     --><div id="div4" class="efeitoBt">
-        <a href="./gamificacao-index.html"><img style="width: 20%;" src="./assets/img/game.png" alt="Games da professora Manú"></a>
-        <a href="./gamificacao-index.html"><p>Gamificação</p></a>
+        <a onmousedown="beepButton.play()" href="./gamificacao-index.html"><img style="width: 20%;" src="./assets/img/game.png" alt="Games da professora Manú"></a>
+        <a onmousedown="beepButton.play()" href="./gamificacao-index.html"><p>Gamificação</p></a>
     </div>
   </nav>
 </div>
