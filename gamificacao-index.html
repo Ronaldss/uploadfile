@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./styles/efeitoBT.css">
     <script type="text/javascript" src="./js/gameTurma.js"></script>
     <script type="text/javascript" src="./js/sound.js"></script>
+    <script type="text/javascript" src="./js/beepButton.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
@@ -43,7 +44,7 @@
         <button class="efeitoBt, button-game-index">8 Ano</button>
         <br><br><br><br>
         <div class="voltar"> 
-            <a href="./index.html">
+            <a onmousedown="beepButton.play()" href="./index.html">
               <img style="width: 45px; background-color: #000; border-radius: 50%;" src="./assets/img/voltar.png" alt="">
             </a>
         </div>
