@@ -7,18 +7,29 @@ html, body {
     color: #FFF;
     justify-content:center;
     align-items: center;
-    
     font-size: 12px;
-
+  }
+  #card {
+    *border: solid 1px tomato;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  label {
+    font-size: 1rem;
+  }
+  h3 {
+    font-size:1rem;
   }
   #botao {
       text-align: center;
   }
   button {
     background-color: #F25A70;
-    color: #FFF;
+    color: #000;
     padding: 8px;
     border-radius: 10%;
+    border: 2px solid #000;
+    
     font-weight: bold;
     *margin: 0 auto;
     text-align: center;

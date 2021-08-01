@@ -23,16 +23,19 @@
 </head>
 <body class="gradient-ati">
   <h2>Atividades</h2>
-  <p style="font-weight: bold; margin-left: 10px;">Escolha a matéria:</p>
-  <hr>
+<div id="card">  
+  
+  <!--<p style="font-weight: bold; margin-left: 10px;">Escolha a matéria:</p>-->
+  <h3>Escolha a matéria:</h3>
   <input type="radio" name="materia" id="artes" value="artes">
   <label for="">Artes</label><br><br>
   <input type="radio" name="materia" id="hAlagoas" value="hAlagoas">
   <label for="">História de Alagoas</label><br><br>
   <input type="radio" name="materia" id="hGeral" value="hGeral">
   <label for="">História Geral</label><br><br>
-  <br>
+  <br><br><br><br><br>
   <div id="botao">
+    <button class="efeitoBt" onclick="goBack()">Voltar</button>
     <button class="efeitoBt" onclick="redirecionar()">Confirmar</button>
   </div><br>
   <script>
@@ -50,6 +53,10 @@
         window.location.href = "./index-hGeral.html"
       }
     }
+    function goBack() {
+      window.location.href = "./index.html"
+    }
   </script>
+</div>  
 </body>
 </html>
