@@ -10,23 +10,18 @@
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles/index-options.css">
     <link rel="stylesheet" href="styles/gradient.css">
+    <script type="text/javascript" src="./js/sound.js"></script>
+    <script type="text/javascript" src="./js/beepButton.js"></script>
     <title>Profa. Manú</title>
 </head>
-<body class="gradient">
-<script>
-    function TocarMusica(){
-        var audio1 = new Audio();
-        audio1.src = "./assets/music/Spring_In_My_Step.mp3";
-        audio1.volume = 0.02;
-        audio1.play();
-        console.log('Music...')
-    };
-</script>
+<body onload="TocarMusica()" class="gradient">
+<!--
 <script>
     var beepButton = new Audio();
     beepButton.src = "./assets/music/click-on.mp3";
     beepButton.volume = 1.0;
 </script>
+-->
 <h2 style="border-bottom: solid 2px #fff;">Profa. Manú</h2>
 <div class="wrapper">
   <!--<h2>ProfaManu</h2>-->
