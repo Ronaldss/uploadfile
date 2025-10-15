@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Tempo da História</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(circle at center, #1a1425 0%, #0c0811 100%);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    .handwritten {
+      font-family: 'Great Vibes', cursive;
+    }
+    .fade-in {
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, #b18cff, #e2d1ff);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-10">
+
+  <!-- Introdução -->
+  <section class="text-center max-w-3xl fade-in">
+    <h1 class="text-5xl md:text-6xl handwritten text-purple-300 mb-6">O Tempo da História</h1>
+    <p class="text-lg text-gray-300 leading-relaxed">
+      Em cada sala de aula, o tempo ganha novas páginas.<br>
+      Cada explicação, um novo capítulo.<br>
+      E em cada olhar curioso, nasce o futuro que ela tanto acredita.
+    </p>
+  </section>
+
+  <!-- Linha do Tempo -->
+  <section class="relative mt-16 timeline max-w-4xl">
+    <div class="space-y-16 relative">
+
+      <div class="fade-in flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 md:text-right pr-6">
+          <h2 class="text-2xl font-semibold text-purple-300">O Início</h2>
+          <p class="text-gray-300">Tudo começou com o desejo de ensinar mais do que datas e fatos — ensinar a pensar, sentir e questionar o mundo.</p>
+        </div>
+        <div class="w-6 h-6 bg-purple-400 rounded-full shadow-lg"></div>
+      </div>
+
+      <div class="fade-in flex flex-col md:flex-row-reverse items-center">
+        <div class="md:w-1/2 md:text-left pl-6">
+          <h2 class="text-2xl font-semibold text-purple-300">O Desafio</h2>
+          <p class="text-gray-300">No EJA, encontrou alunos com histórias de vida únicas — e transformou cada uma delas em oportunidade de recomeço.</p>
+        </div>
+        <div class="w-6 h-6 bg-purple-400 rounded-full shadow-lg"></div>
+      </div>
+
+      <div class="fade-in flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 md:text-right pr-6">
+          <h2 class="text-2xl font-semibold text-purple-300">A Arte de Ensinar</h2>
+          <p class="text-gray-300">Entre teoria, músicas, gamificação e risadas, ela provou que aprender pode ser leve, divertido e inesquecível.</p>
+        </div>
+        <div class="w-6 h-6 bg-purple-400 rounded-full shadow-lg"></div>
+      </div>
+
+      <div class="fade-in flex flex-col md:flex-row-reverse items-center">
+        <div class="md:w-1/2 md:text-left pl-6">
+          <h2 class="text-2xl font-semibold text-purple-300">O Propósito</h2>
+          <p class="text-gray-300">Ensinar História é mais do que relembrar o passado. É inspirar o presente e construir futuros.</p>
+        </div>
+        <div class="w-6 h-6 bg-purple-400 rounded-full shadow-lg"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Mensagem final -->
+  <section class="mt-20 text-center max-w-2xl fade-in">
+    <h2 class="handwritten text-4xl text-purple-200 mb-6">Para a professora que faz História acontecer...</h2>
+    <p class="text-gray-300 mb-8">
+      Por cada aluno que voltou a acreditar,<br>
+      por cada música que virou aprendizado,<br>
+      por cada sorriso que se acendeu na sala de aula —<br>
+      hoje e sempre, você é inspiração.
+    </p>
+    <p class="text-purple-300 text-lg font-medium">Feliz Dia do Professor 💜<br>Com amor,<br><span class="handwritten text-3xl">do seu admirador secreto tecnológico 💻✨</span></p>
+  </section>
+
+  <!-- Botão de retorno -->
+  <div class="mt-16">
+    <a href="https://uploadfile.vercel.app/" class="px-6 py-3 bg-purple-600 rounded-full text-white hover:bg-purple-500 transition-all shadow-lg">
+      Voltar ao site principal
+    </a>
+  </div>
+
+  <script>
+    // Efeito de fade-in gradual
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach((el, i) => {
+      el.style.animationDelay = `${i * 0.5}s`;
+    });
+  </script>
+
+</body>
+</html>

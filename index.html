@@ -1,52 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="author" href="https://github.com/Ronaldss"/>
-    <meta name="description" content="Olá querido aluno(a)! Anexe suas atividades aqui, juntos venceremos este período e logo estaremos juntos em sala de aula! Profª Manu - História | Arte 😉">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Ronaldss/uploadfile/main/assets/img/profManu.png">
-    <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="styles/index-options.css">
-    <link rel="stylesheet" href="styles/gradient.css">
-    <script type="text/javascript" src="./js/sound.js"></script>
-    <script type="text/javascript" src="./js/beepButton.js"></script>
-    <title>Profa. Manú</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Olá querido aluno(a)! Anexe suas atividades aqui. Juntos venceremos este período e logo estaremos juntos em sala de aula! Profª Manu - História | Arte 😉">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Ronaldss/uploadfile/main/assets/img/profManu.png" />
+  <link rel="author" href="https://github.com/Ronaldss" />
+  <title>Profa. Manú</title>
+
+  <link rel="stylesheet" href="styles/gradient.css" />
+  <script src="./js/sound.js" defer></script>
+  <script src="./js/beepButton.js" defer></script>
+
+  <style>
+    /* ---------- ESTILOS GERAIS ---------- */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at center, #703eff 0%, #2c135d 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #fff;
+      display: inline-block;
+      padding-bottom: 0.4rem;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    q {
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav .efeitoBt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    nav .efeitoBt:hover {
+      transform: scale(1.08);
+    }
+
+    nav img {
+      width: 80px;
+      transition: transform 0.3s ease;
+    }
+
+    nav img:hover {
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    /* ---------- LINKS E TEXTOS ---------- */
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #d6b3ff;
+      transform: translateY(-4px);
+    }
+
+    nav a p {
+      position: relative;
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    nav a p::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 50%;
+      bottom: -5px;
+      background: linear-gradient(90deg, #b249f8, #ff77cc);
+      border-radius: 1px;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover p::after {
+      width: 70%;
+    }
+
+    nav a:focus p {
+      outline: none;
+      color: #ffdcff;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+
+    /* ---------- BOTÃO DIA DO PROFESSOR ---------- */
+    .btn-dia-professor {
+      margin-top: 2.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(90deg, #7d3cff, #b249f8, #ff77cc);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+      background-size: 200% 200%;
+      animation: brilho 4s infinite linear;
+    }
+
+    .btn-dia-professor:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    @keyframes brilho {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ---------- LAYOUT ESPECIAL PARA TELAS GRANDES ---------- */
+    @media screen and (min-width: 900px) {
+      body {
+        justify-content: space-evenly;
+        flex-direction: row;
+        padding: 2rem 4rem;
+      }
+
+      main {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        max-width: 1400px;
+        width: 100%;
+      }
+
+      .left-section {
+        flex: 1;
+        padding-right: 4rem;
+      }
+
+      .left-section h1 {
+        font-size: 3rem;
+      }
+
+      .left-section q {
+        font-size: 1.3rem;
+        color: #f0f0f0;
+      }
+
+      .right-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 3rem;
+      }
+
+      nav img {
+        width: 120px;
+      }
+
+      .btn-dia-professor {
+        font-size: 1.4rem;
+        padding: 1.2rem 2.5rem;
+      }
+    }
+  </style>
 </head>
+
 <body onload="TocarMusica()" class="gradient">
-<!--
-<script>
-    var beepButton = new Audio();
-    beepButton.src = "./assets/music/click-on.mp3";
-    beepButton.volume = 1.0;
-</script>
--->
-<h2 style="border-bottom: solid 2px #fff;">Profa. Manú</h2>
-<div class="wrapper">
-  <!--<h2>ProfaManu</h2>-->
-  <br><br><br>
-  <q>Sucesso é o acúmulo de pequenos esforços, repetidos dia a dia.</q><br>
-  <i>Robert Collier</i>
-  <br><br><br>
-  <nav>
-    <div id="div1" class="efeitoBt">  
-        <a onmousedown="beepButton.play()" href="./index-atividades.html"><img style="width: 20%;" src="./assets/img/book.png" alt="Atividades"></a>
-        <a onmousedown="beepButton.play()" href="./index-atividades.html"><p>Atividades</p></a>
-    </div><!--
-    --><div id="div2" class="efeitoBt">
-        <a onmousedown="beepButton.play()" href="./podcast.html"><img style="width: 20%;" src="./assets/img/podcast.png" alt="Podcast"></a>
-        <a onmousedown="beepButton.play()" href="./podcast.html"><p>Podcast</p></a>
-    </div>
-    <div id="div3" class="efeitoBt">
-        <a onmousedown="beepButton.play()" href="./videos.html"><img style="width: 20%;" src="./assets/img/videos.png" alt="Vídeos"></a>
-        <a onmousedown="beepButton.play()" href="./videos.html"><p>Vídeos</p></a>
-    </div><!--
-    --><div id="div4" class="efeitoBt">
-        <a onmousedown="beepButton.play()" href="./gamificacao-index.html"><img style="width: 20%;" src="./assets/img/game.png" alt="Games da professora Manú"></a>
-        <a onmousedown="beepButton.play()" href="./gamificacao-index.html"><p>Gamificação</p></a>
-    </div>
-  </nav>
-</div>
+  <main>
+    <!-- LADO ESQUERDO (texto e frase) -->
+    <section class="left-section">
+      <header>
+        <h1>Profa. Manú</h1>
+      </header>
+      <q>Sucesso é o acúmulo de pequenos esforços, repetidos dia a dia.</q><br>
+      <i>— Robert Collier</i>
+    </section>
+
+    <!-- LADO DIREITO (botões e navegação) -->
+    <section class="right-section">
+      <nav>
+        <div class="efeitoBt">
+          <a onmousedown="beepButton.play()" href="./index-atividades.html" aria-label="Atividades">
+            <img src="./assets/img/book.png" alt="Atividades">
+            <p>Atividades</p>
+          </a>
+        </div>
+
+        <div class="efeitoBt">
+          <a onmousedown="beepButton.play()" href="./podcast.html" aria-label="Podcast">
+            <img src="./assets/img/podcast.png" alt="Podcast">
+            <p>Podcast</p>
+          </a>
+        </div>
+
+        <div class="efeitoBt">
+          <a onmousedown="beepButton.play()" href="./videos.html" aria-label="Vídeos">
+            <img src="./assets/img/videos.png" alt="Vídeos">
+            <p>Vídeos</p>
+          </a>
+        </div>
+
+        <div class="efeitoBt">
+          <a onmousedown="beepButton.play()" href="./gamificacao-index.html" aria-label="Gamificação">
+            <img src="./assets/img/game.png" alt="Gamificação">
+            <p>Gamificação</p>
+          </a>
+        </div>
+      </nav>
+
+      <button class="btn-dia-professor" onclick="beepButton.play(); window.location.href='./diaDoProfessor.html';">
+        Dia do Professor 🎉
+      </button>
+    </section>
+  </main>
 </body>
 </html>
